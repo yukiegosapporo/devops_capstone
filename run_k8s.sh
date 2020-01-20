@@ -5,7 +5,7 @@
 # Step 1:
 # This is your Docker ID/path
 # dockerpath=<>
-dockerpath=yukiego/rlapp_hub
+dockerpath=yukiego/rlapp
 
 # Step 2
 # Run the Docker Hub container with kubernetes
@@ -21,4 +21,7 @@ kubectl get po
 # Step 4:
 # Forward the container port to a host
 echo "step 4"
-sudo kubectl port-forward ??? 5000:5000
+kubectl expose deployment rlapp --type=LoadBalancer --name=rlapp-service
+# kubectl expose deployment rlapp --type=NodePort --name=rlapp-service
+kubectl describe services rlapp-service
+kubectl get services rlapp-service
