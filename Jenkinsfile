@@ -1,35 +1,11 @@
 pipeline {
-    agent {
-        docker {
-            image 'hadolint/hadolint:latest-debian'
-        }
-    }
+    agent any
     stages {
-        // stage('pip install') {
-        //     steps {
-        //         sh 'echo "pip install"'
-        //         sh 'pip3 install -r requirements.txt'
-        //     }
-        // }
-        stage('Lint') {
+        stage('Lint app.py') {
             steps {
                 sh 'echo "lint"'
-                sh 'hadolint dockerfiles/*'
+                sh 'pylint app/app.py -d C0115,C0103,C0114,R0201,F0401'
             }
         }
-        // stage('Docker build') {
-        //     steps {
-        //         sh 'echo "docker build"'
-        //         sh 'docker build --tag=rlapp .'
-        //     }
-        // }
-        // stage('Upload to AWS') {
-        //     steps {
-        //         sh 'echo "Hello World"'
-        //         withAWS(credentials: 'aws-static', region:'us-east-1') {
-        //             s3Upload(file:'index.html', bucket:'yuki-jenkins-devops', path:'index.html')
-        //         }
-        //     }
-        // }
     }
 }
