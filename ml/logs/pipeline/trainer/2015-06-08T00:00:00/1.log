@@ -1,0 +1,26 @@
+[2020-01-19 19:11:56,733] {cli.py:374} INFO - Running on host Yuki-Katoh-MacBook-Pro.local
+[2020-01-19 19:12:06,754] {models.py:1197} INFO - Dependencies all met for <TaskInstance: pipeline.trainer 2015-06-08 00:00:00 [queued]>
+[2020-01-19 19:12:06,758] {models.py:1197} INFO - Dependencies all met for <TaskInstance: pipeline.trainer 2015-06-08 00:00:00 [queued]>
+[2020-01-19 19:12:06,758] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 2
+--------------------------------------------------------------------------------
+
+[2020-01-19 19:12:06,764] {models.py:1428} INFO - Executing <Task(PythonOperator): trainer> on 2015-06-08 00:00:00
+[2020-01-19 19:12:06,765] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run pipeline trainer 2015-06-08T00:00:00 --job_id 18 --raw -sd DAGS_FOLDER/pipeline.py']
+[2020-01-19 19:12:07,298] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:07,298] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2020-01-19 19:12:07,381] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:07,381] {models.py:189} INFO - Filling up the DagBag from /Users/yukikatoh/Documents/devops_nd/capstone/ml/dags/pipeline.py
+[2020-01-19 19:12:17,593] {cli.py:374} INFO - Running on host Yuki-Katoh-MacBook-Pro.local
+[2020-01-19 19:12:22,626] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:22,625] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/stable_baselines/common/policies.py:561: flatten (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+[2020-01-19 19:12:22,626] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:12:22,626] {base_task_runner.py:98} INFO - Subtask: Use keras.layers.flatten instead.
+[2020-01-19 19:12:22,637] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:22,637] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+[2020-01-19 19:12:22,638] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:12:22,638] {base_task_runner.py:98} INFO - Subtask: Colocations handled automatically by placer.
+[2020-01-19 19:12:22,933] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:22,933] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+[2020-01-19 19:12:22,933] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:12:22,933] {base_task_runner.py:98} INFO - Subtask: Use tf.cast instead.
+[2020-01-19 19:12:23,042] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:23,041] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/tensorflow/python/ops/math_grad.py:102: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+[2020-01-19 19:12:23,042] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:12:23,042] {base_task_runner.py:98} INFO - Subtask: Deprecated in favor of operator or tf.math.divide.
+[2020-01-19 19:12:29,462] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:12:29,462] {python_operator.py:90} INFO - Done. Returned value was: None

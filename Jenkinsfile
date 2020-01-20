@@ -1,12 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('Lint HTML') {
+        stage('Lint dockerfile') {
             steps {
                 sh 'echo "lint"'
-                sh 'tidy -q -e *.html'
+                sh 'hadolint Dockerfile'
             }
         }
+        // stage('Docker build') {
+        //     steps {
+        //         sh 'echo "docker build"'
+        //         sh 'docker build --tag=rlapp .'
+        //     }
+        // }
         // stage('Upload to AWS') {
         //     steps {
         //         sh 'echo "Hello World"'

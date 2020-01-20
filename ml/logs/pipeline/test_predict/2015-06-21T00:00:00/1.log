@@ -1,0 +1,66 @@
+[2020-01-19 19:32:56,032] {cli.py:374} INFO - Running on host Yuki-Katoh-MacBook-Pro.local
+[2020-01-19 19:33:06,054] {models.py:1197} INFO - Dependencies all met for <TaskInstance: pipeline.test_predict 2015-06-21 00:00:00 [queued]>
+[2020-01-19 19:33:06,058] {models.py:1197} INFO - Dependencies all met for <TaskInstance: pipeline.test_predict 2015-06-21 00:00:00 [queued]>
+[2020-01-19 19:33:06,058] {models.py:1407} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 2
+--------------------------------------------------------------------------------
+
+[2020-01-19 19:33:06,066] {models.py:1428} INFO - Executing <Task(PythonOperator): test_predict> on 2015-06-21 00:00:00
+[2020-01-19 19:33:06,066] {base_task_runner.py:115} INFO - Running: ['bash', '-c', 'airflow run pipeline test_predict 2015-06-21T00:00:00 --job_id 45 --raw -sd DAGS_FOLDER/pipeline.py']
+[2020-01-19 19:33:06,537] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:06,537] {__init__.py:45} INFO - Using executor SequentialExecutor
+[2020-01-19 19:33:06,611] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:06,611] {models.py:189} INFO - Filling up the DagBag from /Users/yukikatoh/Documents/devops_nd/capstone/ml/dags/pipeline.py
+[2020-01-19 19:33:14,555] {cli.py:374} INFO - Running on host Yuki-Katoh-MacBook-Pro.local
+[2020-01-19 19:33:19,581] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:19,581] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/stable_baselines/common/policies.py:560: flatten (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+[2020-01-19 19:33:19,581] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:33:19,581] {base_task_runner.py:98} INFO - Subtask: Use keras.layers.flatten instead.
+[2020-01-19 19:33:19,599] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:19,599] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+[2020-01-19 19:33:19,599] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:33:19,599] {base_task_runner.py:98} INFO - Subtask: Colocations handled automatically by placer.
+[2020-01-19 19:33:19,891] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:19,890] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+[2020-01-19 19:33:19,891] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:33:19,891] {base_task_runner.py:98} INFO - Subtask: Use tf.cast instead.
+[2020-01-19 19:33:20,000] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:19,999] {deprecation.py:323} WARNING - From /Users/yukikatoh/.pyenv/versions/3.6.8/lib/python3.6/site-packages/tensorflow/python/ops/math_grad.py:102: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+[2020-01-19 19:33:20,000] {base_task_runner.py:98} INFO - Subtask: Instructions for updating:
+[2020-01-19 19:33:20,000] {base_task_runner.py:98} INFO - Subtask: Deprecated in favor of operator or tf.math.divide.
+[2020-01-19 19:33:20,889] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,889] {test_predict.py:21} INFO - [[-0.0499334   0.18753195  0.03665534 -0.27163368]]
+[2020-01-19 19:33:20,889] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,889] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,890] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,889] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,890] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,889] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,893] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,891] {test_predict.py:21} INFO - [[-0.04618277  0.38211218  0.03122267 -0.55253375]]
+[2020-01-19 19:33:20,893] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,893] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,893] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,893] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,893] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,893] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,896] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,895] {test_predict.py:21} INFO - [[-0.03854052  0.186566    0.02017199 -0.25017944]]
+[2020-01-19 19:33:20,896] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,896] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,896] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,896] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,897] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,896] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,898] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,898] {test_predict.py:21} INFO - [[-0.0348092   0.38139415  0.0151684  -0.5364321 ]]
+[2020-01-19 19:33:20,898] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,898] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,898] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,898] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,898] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,898] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,899] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,899] {test_predict.py:21} INFO - [[-0.02718132  0.18606225  0.00443976 -0.23900858]]
+[2020-01-19 19:33:20,899] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,899] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,899] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,899] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,900] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,899] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,900] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,900] {test_predict.py:21} INFO - [[-0.02346007 -0.00912284 -0.00034041  0.05507147]]
+[2020-01-19 19:33:20,900] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,900] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,901] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,900] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,901] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,901] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,901] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,901] {test_predict.py:21} INFO - [[-0.02364253  0.18600398  0.00076102 -0.23771884]]
+[2020-01-19 19:33:20,902] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,901] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,902] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,901] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,902] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,902] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,902] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,902] {test_predict.py:21} INFO - [[-0.01992245 -0.00912883 -0.00399336  0.05520404]]
+[2020-01-19 19:33:20,903] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,902] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,903] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,903] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,903] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,903] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,904] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,903] {test_predict.py:21} INFO - [[-0.02010503 -0.2041933  -0.00288928  0.34662434]]
+[2020-01-19 19:33:20,904] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,904] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,904] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,904] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,904] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,904] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,905] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,905] {test_predict.py:21} INFO - [[-0.02418889 -0.39927402  0.00404321  0.6383948 ]]
+[2020-01-19 19:33:20,905] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,905] {test_predict.py:22} INFO - [1.]
+[2020-01-19 19:33:20,905] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,905] {test_predict.py:23} INFO - [False]
+[2020-01-19 19:33:20,905] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,905] {test_predict.py:24} INFO - [{}]
+[2020-01-19 19:33:20,909] {base_task_runner.py:98} INFO - Subtask: [2020-01-19 19:33:20,909] {python_operator.py:90} INFO - Done. Returned value was: None
