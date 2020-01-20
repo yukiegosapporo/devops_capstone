@@ -1,16 +1,20 @@
 pipeline {
-    agent any
-    stages {
-        stage('pip install') {
-            steps {
-                sh 'echo "pip install"'
-                sh 'pip3 install -r requirements.txt'
-            }
+    agent {
+        docker {
+            image 'hadolint/hadolint:latest-debian'
         }
-        stage('Lint app.py') {
+    }
+    stages {
+        // stage('pip install') {
+        //     steps {
+        //         sh 'echo "pip install"'
+        //         sh 'pip3 install -r requirements.txt'
+        //     }
+        // }
+        stage('Lint') {
             steps {
                 sh 'echo "lint"'
-                sh 'pylint ml/tasks/trainer.py'
+                sh 'hadolint dockerfiles/*'
             }
         }
         // stage('Docker build') {
