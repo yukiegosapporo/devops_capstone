@@ -4,7 +4,7 @@ pipeline {
         stage('Lint app.py') {
             steps {
                 sh 'echo "lint"'
-                sh 'pylint app/app.py'
+                sh '/home/ubuntu/.local/bin/pylint app/app.py'
             }
         }
         // stage('Docker build') {
