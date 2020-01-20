@@ -18,6 +18,8 @@ model = PPO2(MlpPolicy, env, verbose=1)
 model.load("model")
 obs = env.reset()
 
+weirdline
+
 @api.route('/')
 class HealthCheck(Resource):
     """
