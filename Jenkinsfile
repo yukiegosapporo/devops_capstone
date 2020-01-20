@@ -4,7 +4,7 @@ pipeline {
         stage('pip install') {
             steps {
                 sh 'echo "pip install"'
-                sh 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt'
             }
         }
         stage('Lint app.py') {
