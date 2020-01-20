@@ -20,6 +20,9 @@ obs = env.reset()
 
 @api.route('/')
 class HealthCheck(Resource):
+    """
+    Health check class
+    """
     @api.doc(responses={200: 'OK', 400: 'Invalid Argument', 500: 'Mapping Key Error'})
     def get(self):
         """Health check
@@ -32,6 +35,9 @@ class HealthCheck(Resource):
 
 @api.route('/play')
 class Play(Resource):
+    """
+    Play class
+    """
     @api.doc(responses={200: 'OK', 400: 'Invalid Argument', 500: 'Mapping Key Error'})
     def get(self):
         """Play a RL model with one random epoch
