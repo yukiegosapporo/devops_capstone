@@ -25,3 +25,4 @@ kubectl expose deployment rlapp --type=LoadBalancer --name=rlapp-service
 # kubectl expose deployment rlapp --type=NodePort --name=rlapp-service
 kubectl describe services rlapp-service
 kubectl get services rlapp-service
+# http://aa364fce53b5411eabcba128994214c7-887932988.us-east-1.elb.amazonaws.com:5000/
