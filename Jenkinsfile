@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'hadolint/hadolint:latest-debian'
-        }
-    }
+    agent any
     stages {
-        stage('Lint dockerfile') {
+        stage('Lint app.py') {
             steps {
                 sh 'echo "lint"'
-                sh 'hadolint Dockerfile'
+                sh 'pylint app/app.py'
             }
         }
         // stage('Docker build') {

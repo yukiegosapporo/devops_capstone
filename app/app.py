@@ -1,18 +1,16 @@
 import logging
 import gym
-import numpy as np
 
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.common.policies import MlpPolicy
 from stable_baselines import PPO2
-from flask import Flask, request, jsonify
-from flask_restplus import Resource, Api, fields
+from flask import Flask, jsonify
+from flask_restplus import Resource, Api
 
 app = Flask(__name__)
 api = Api(app=app,
           title="CartPole app",
-          description="Dead simple cartpole RL app"
-    )
+          description="Dead simple cartpole RL app")
 
 env = gym.make('CartPole-v1')
 env = DummyVecEnv([lambda: env])
@@ -24,6 +22,11 @@ obs = env.reset()
 class HealthCheck(Resource):
     @api.doc(responses={200: 'OK', 400: 'Invalid Argument', 500: 'Mapping Key Error'})
     def get(self):
+        """Health check
+
+        :return: health check message
+        :rtype: json
+        """
         return jsonify({'Message': 'App up and running'})
 
 
@@ -31,6 +34,11 @@ class HealthCheck(Resource):
 class Play(Resource):
     @api.doc(responses={200: 'OK', 400: 'Invalid Argument', 500: 'Mapping Key Error'})
     def get(self):
+        """Play a RL model with one random epoch
+
+        :return: action value, either 0 or 1
+        :rtype: json
+        """
         action, _ = model.predict(obs)
 
         rv = {}
