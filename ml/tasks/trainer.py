@@ -6,6 +6,9 @@ from stable_baselines import PPO2
 
 
 def trainer(**kw):
+    """
+    Trainer func
+    """
     config = kw["config"]
 
     env = gym.make('CartPole-v1')
