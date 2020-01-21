@@ -12,19 +12,30 @@ pipeline {
                 sh 'pylint app/app.py -d C0115,C0103,C0114,R0201,F0401,C0111,R0903'
             }
         }
-        stage('Building image') {
+        stage('Build & Push to dockerhub') {
             steps {
-                echo 'Building Docker image...'
-                withCredentials([
-                    usernamePassword(credentialsId: 'hub',
-                                    passwordVariable: 'hubPassword',
-                                    usernameVariable: 'hubUser')]) {
-                    sh "docker login -u ${env.hubUser} -p ${env.hubPassword}"
-                    sh "docker build -t ${registry} ."
-                    sh "docker tag ${registry} ${registry}"
-                    sh "docker push ${registry}"
+                script {
+                    dockerImage = docker.build("yukiego/rlapp:latest")
+                    docker.withRegistry('', hub) {
+                        dockerImage.push()
+                    }
                 }
+            }
         }
+
+        // stage('Building image') {
+        //     steps {
+        //         echo 'Building Docker image...'
+        //         withCredentials([
+        //             usernamePassword(credentialsId: 'hub',
+        //                             passwordVariable: 'hubPassword',
+        //                             usernameVariable: 'hubUser')]) {
+        //             sh "docker login -u ${env.hubUser} -p ${env.hubPassword}"
+        //             sh "docker build -t ${registry} ."
+        //             sh "docker tag ${registry} ${registry}"
+        //             sh "docker push ${registry}"
+        //         }
+        // }
         }
         // stage('Upload to AWS') {
         //     steps {
