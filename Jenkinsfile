@@ -1,5 +1,12 @@
 pipeline {
-    agent any
+    environment {
+        registry = "docker_hub_account/repository_name"
+        registryCredential = 'dockerhub'
+    }
+
+    agent {
+        docker { image 'node:7-alpine' }
+    }
     stages {
         stage('Lint app.py') {
             steps {
@@ -7,30 +14,17 @@ pipeline {
                 sh 'pylint app/app.py -d C0115,C0103,C0114,R0201,F0401,C0111,R0903'
             }
         }
-        stage('Docker build') {
-            steps {
-                sh 'echo "docker build"'
-                sh 'docker build -t 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp:latest .'
-            }
+        stage('Building image') {
+            echo 'Building Docker image...'
+            withCredentials([
+                usernamePassword(credentialsId: 'hub',
+                                 passwordVariable: 'hubPassword',
+                                 usernameVariable: 'hubUser')]) {
+                sh "docker login -u ${env.hubUser} -p ${env.hubPassword}"
+                sh "docker build -t ${registry} ."
+                sh "docker tag ${registry} ${registry}"
+                sh "docker push ${registry}"
         }
-        stage('Docker tag') {
-            steps {
-                sh 'echo "docker tag"'
-                sh 'docker tag rlapp 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp'
-            }
-        }
-        stage('Docker push') {
-            steps {
-                sh 'echo "docker push"'
-                sh 'docker push 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp:latest'
-            }
-        }
-
-        stage('Docker rmi') {
-            steps {
-                sh 'echo "docker push"'
-                sh 'docker rmi 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp:latest'
-            }
         }
         // stage('Upload to AWS') {
         //     steps {
