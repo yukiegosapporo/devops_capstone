@@ -15,12 +15,10 @@ pipeline {
     stage('Building image') {
             steps {
                 script {
-                    dir(config.buildFolder){
                         dockerImage = docker.build("yukiego/rlapp:latest")
                         docker.withRegistry('', hub) {
                             dockerImage.push()
                         }
-                    }
                 }
             }
     }
