@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rlapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rlapp
+  template:
+    metadata:
+      labels:
+        app: rlapp
+    spec:
+      containers:
+      - name: rlapp
+        #  image: 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp:latest
+        image: yukiego/rlapp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
