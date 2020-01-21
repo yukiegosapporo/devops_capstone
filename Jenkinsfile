@@ -36,7 +36,7 @@ pipeline {
         //             sh "docker push ${registry}"
         //         }
         // }
-        }
+        // }
         // stage('Upload to AWS') {
         //     steps {
         //         sh 'echo "Hello World"'
