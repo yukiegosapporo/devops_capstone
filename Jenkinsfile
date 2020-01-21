@@ -12,16 +12,16 @@ pipeline {
                 sh 'pylint app/app.py -d C0115,C0103,C0114,R0201,F0401,C0111,R0903'
             }
         }
-    stage('Building image') {
+        stage('Building image') {
             steps {
                 script {
                         dockerImage = docker.build("yukiego/rlapp:latest")
-                        docker.withRegistry('', hub) {
+                        docker.withRegistry('', 'hub') {
                             dockerImage.push()
                         }
                 }
             }
-    }
+        }
 
         // stage('Building image') {
         //     steps {
