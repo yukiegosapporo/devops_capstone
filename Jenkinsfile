@@ -15,15 +15,17 @@ pipeline {
             }
         }
         stage('Building image') {
-            echo 'Building Docker image...'
-            withCredentials([
-                usernamePassword(credentialsId: 'hub',
-                                 passwordVariable: 'hubPassword',
-                                 usernameVariable: 'hubUser')]) {
-                sh "docker login -u ${env.hubUser} -p ${env.hubPassword}"
-                sh "docker build -t ${registry} ."
-                sh "docker tag ${registry} ${registry}"
-                sh "docker push ${registry}"
+            steps {
+                echo 'Building Docker image...'
+                withCredentials([
+                    usernamePassword(credentialsId: 'hub',
+                                    passwordVariable: 'hubPassword',
+                                    usernameVariable: 'hubUser')]) {
+                    sh "docker login -u ${env.hubUser} -p ${env.hubPassword}"
+                    sh "docker build -t ${registry} ."
+                    sh "docker tag ${registry} ${registry}"
+                    sh "docker push ${registry}"
+                }
         }
         }
         // stage('Upload to AWS') {
