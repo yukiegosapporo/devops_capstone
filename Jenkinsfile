@@ -4,9 +4,7 @@ pipeline {
         registryCredential = 'dockerhub'
     }
 
-    agent {
-        docker { image 'node:7-alpine' }
-    }
+    agent any
     stages {
         stage('Lint app.py') {
             steps {
