@@ -21,7 +21,7 @@ pipeline {
             steps {
                 dir('k8s') {
                     withAWS(credentials: 'aws', region: 'us-east-1') {
-                        sh "aws eks --region us-east-1 update-kubeconfig --name EKS-iTh8Azxyb9Kf"
+                        sh "/home/ubuntu/.local/bin/aws eks --region us-east-1 update-kubeconfig --name EKS-iTh8Azxyb9Kf"
                         sh 'kubectl apply -f deployment.yaml'
                         sh 'kubectl apply -f service.yaml'
                         }
