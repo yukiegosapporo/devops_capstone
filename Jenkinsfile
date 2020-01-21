@@ -13,12 +13,19 @@ pipeline {
                 sh 'docker build -t 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp:latest .'
             }
         }
+        stage('Docker tag') {
+            steps {
+                sh 'echo "docker tag"'
+                sh 'docker tag rlapp 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp'
+            }
+        }
         stage('Docker push') {
             steps {
                 sh 'echo "docker push"'
                 sh 'docker push 976324526436.dkr.ecr.us-east-1.amazonaws.com/rlapp:latest'
             }
         }
+
         stage('Docker rmi') {
             steps {
                 sh 'echo "docker push"'
